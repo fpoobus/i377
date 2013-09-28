@@ -20,7 +20,7 @@
                     Init 
     *************************************** 
     -->
-    <target name="init" depends="retrieve, clean, setenv, compile, war">
+    <target name="init" depends="clean, setenv, retrieve, compile, war">
     </target>
     
     <!--
