@@ -7,7 +7,7 @@
    <property name="lib.dir" location="lib" />
    <property name="classes.dir" location="${build.dir}/classes" />
    <property name="webContent.dir" location="web" />
-   <property name="war.file" location="JavaEEfpoobus.war" />
+   <property name="war.file" location="fpoobus.war" />
    <property name="web-inf.lib" value="${webContent.dir}/WEB-INF/lib" />
 
    <path id="classpath">
