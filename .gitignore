@@ -1,3 +1,7 @@
 /build
 /bin
+/dist
+/nbproject
+/web/WEB-INF/lib
+*.war
 *.class

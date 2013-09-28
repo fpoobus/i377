@@ -4,13 +4,40 @@
         <servlet-name>Hello</servlet-name>
         <servlet-class>com.homework.web.Hello</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomePage</servlet-name>
+        <servlet-class>com.homework.hw2.HomePage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SessionCount</servlet-name>
+        <servlet-class>com.homework.hw2.SessionCount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>com.homework.hw2.LogOut</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Hello</servlet-name>
         <url-pattern>/Hello</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomePage</servlet-name>
+        <url-pattern>/HomePage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SessionCount</servlet-name>
+        <url-pattern>/SessionCount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOut</servlet-name>
+        <url-pattern>/LogOut</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <listener>
+        <listener-class>com.homework.hw2.SessionHandler</listener-class>
+    </listener>
 </web-app>
