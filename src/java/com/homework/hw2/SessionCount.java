@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SessionCount extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().println("Total sessions: "+SessionHandler.ACTIVE_SESSION_COUNT);
+        response.getWriter().println("count: "+SessionHandler.ACTIVE_SESSION_COUNT);
         
     }
 
