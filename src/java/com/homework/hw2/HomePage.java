@@ -23,7 +23,10 @@ public class HomePage extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Object url_attribute = request.getParameter(SESSION_ATTRIBUTE);
-        request.getSession().setAttribute(SESSION_ATTRIBUTE, url_attribute);
+        
+        if(url_attribute != null)
+            request.getSession().setAttribute(SESSION_ATTRIBUTE, url_attribute);
+        
         String session_value = (String)request.getSession().getAttribute(SESSION_ATTRIBUTE);
         
         String sessionId = request.getSession().getId();
