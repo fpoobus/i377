@@ -1,7 +1,7 @@
 /**
  * Fredi Poobus
  * Java EE
- * Kodutöö 1
+ * Homework 1
  */
 package com.homework.web;
 
