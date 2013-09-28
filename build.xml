@@ -30,6 +30,7 @@
     -->
     <target name="setenv">
         <mkdir dir="build/classes"/>
+        <mkdir dir="${web-inf.lib}"/>
     </target>
     
     <!--
