@@ -28,7 +28,7 @@ public class HomePage extends HttpServlet {
         
         String sessionId = request.getSession().getId();
         response.getWriter().println("id is " + sessionId);
-        response.getWriter().println("attribute is " + url_attribute);       
+        response.getWriter().println("attribute is " + session_value);       
         
     }
 
