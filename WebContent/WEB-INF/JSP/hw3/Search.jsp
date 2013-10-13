@@ -61,7 +61,7 @@ body {
 								</div>
 							</td>
 							<td>${listitem.code}</td>
-							<td><a href="?do=delete&id=${listitem.id}">Kustuta</a></td>
+							<td><a id="delete_<c:out value="${listitem.code}"/>" href="?do=delete&id=${listitem.id}">Kustuta</a></td>
 						</tr>
 					</c:forEach>
 			    </tbody>
