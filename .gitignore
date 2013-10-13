@@ -2,6 +2,9 @@
 /bin
 /dist
 /nbproject
-/web/WEB-INF/lib
+/WebContent/WEB-INF/lib
 *.war
 *.class
+.settings
+.classpath
+.project

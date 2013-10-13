@@ -6,7 +6,7 @@
    <property name="build.dir" location="build" />
    <property name="lib.dir" location="lib" />
    <property name="classes.dir" location="${build.dir}/classes" />
-   <property name="webContent.dir" location="web" />
+   <property name="webContent.dir" location="WebContent" />
    <property name="war.file" location="fpoobus.war" />
    <property name="web-inf.lib" value="${webContent.dir}/WEB-INF/lib" />
 
