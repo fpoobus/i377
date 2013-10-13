@@ -7,7 +7,7 @@ import org.apache.commons.dbutils.DbUtils;
 
 public class DbAccess {
 
-    private static final String DB_URL = "jdbc:hsqldb:file:${user.home}/i377/fpoobus/db;shutdown=true;hsqldb.lock_file=false";
+    private static final String DB_URL = "jdbc:hsqldb:file:${user.home}/i377/fpoobus/db;shutdown=true"; //hsqldb.lock_file=false
 
     static {
         try {
@@ -23,6 +23,7 @@ public class DbAccess {
 
     public static void setupDatabase() {
     	try {
+    		
     		DbAccess db = new DbAccess();
     		db.deleteTable();
 			db.createTable();
