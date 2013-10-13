@@ -80,7 +80,8 @@ public class DbAccess {
         Statement stmt = null;
         ResultSet rset = null;
         try {
-            ps = conn.prepareStatement("SELECT * FROM unit " + "WHERE name LIKE '%"+str+"%'"); //OR code LIKE '%"+str+"%'
+        	str = str.toUpperCase();
+            ps = conn.prepareStatement("SELECT * FROM unit " + "WHERE UPPER(name) LIKE '%"+str+"%'"); //OR code LIKE '%"+str+"%'
             rset = ps.executeQuery();
             while (rset.next()) {
             	
