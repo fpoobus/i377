@@ -87,9 +87,9 @@ public class DbAccess {
             	long id = rset.getLong(1);
             	String name = rset.getString(2);
             	String code = rset.getString(3);
-            	long superior = rset.getLong(4);
+            	//long superior = rset.getLong(4);
             	
-            	DbItem item = new DbItem(id, name, code, superior);
+            	DbItem item = new DbItem(id, name, code);
             	list.add(item);
             	
                 System.out.println(rset.getInt(1) + ", " + rset.getString(2));
@@ -117,9 +117,9 @@ public class DbAccess {
             	long id = rset.getLong(1);
             	String name = rset.getString(2);
             	String code = rset.getString(3);
-            	long superior = rset.getLong(4);
+            	//long superior = rset.getLong(4);
             	
-            	DbItem item = new DbItem(id, name, code, superior);
+            	DbItem item = new DbItem(id, name, code);
             	list.add(item);
             	
                 System.out.println(rset.getLong(1) + ", " + rset.getString(2));

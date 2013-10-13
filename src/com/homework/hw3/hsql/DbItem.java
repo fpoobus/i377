@@ -11,11 +11,11 @@ public class DbItem {
 	private String code;
 	private long superior_id;
 	
-	public DbItem(long id, String name, String code, long superior) {
+	public DbItem(long id, String name, String code) {
 		this.id = id;
 		this.name = name;
 		this.code = code;
-		this.superior_id = superior;
+		//this.superior_id = superior;
 	}
 	
 	public long getId() {
