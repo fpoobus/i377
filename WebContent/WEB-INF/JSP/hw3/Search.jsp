@@ -55,7 +55,11 @@ body {
 			    <tbody>
 			    	<c:forEach items="${itemlist}" var="listitem">
 						<tr>
-							<td><c:out value="${listitem.name}" /></td>
+							<td>
+								<div id="row_<c:out value="${listitem.code}"/>">
+									<c:out value="${listitem.name}" />
+								</div>
+							</td>
 							<td>${listitem.code}</td>
 							<td><a href="?do=delete&id=${listitem.id}">Kustuta</a></td>
 						</tr>
