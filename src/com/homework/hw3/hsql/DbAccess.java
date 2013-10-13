@@ -193,7 +193,8 @@ public class DbAccess {
 			insertData("Name 4", "Code 4");
 			insertData("Name 5", "Code 5");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
+			//e.printStackTrace();
 		}
     } 
     

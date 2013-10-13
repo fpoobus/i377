@@ -30,7 +30,8 @@ public class SearchServlet extends HttpServlet {
     				try {
 						db.deleteItem(id);
 					} catch (SQLException e) {
-						e.printStackTrace();
+						throw new RuntimeException(e);
+						//e.printStackTrace();
 					}
     			}
     		}
