@@ -16,8 +16,11 @@ import com.homework.hw3.hsql.DbAccess;
 
 public class AddServlet extends HttpServlet {
 
+	public static boolean contextHasRan = false;
+	
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	request.setAttribute("context_has_ran", contextHasRan);
     	request.getRequestDispatcher("WEB-INF/JSP/hw3/Add.jsp").forward(request, response);
     }
 
