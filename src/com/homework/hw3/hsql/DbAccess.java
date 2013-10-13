@@ -7,7 +7,7 @@ import org.apache.commons.dbutils.DbUtils;
 
 public class DbAccess {
 
-    private static final String DB_URL = "jdbc:hsqldb:file:${user.home}/i377/fpoobus/db;shutdown=true"; //hsqldb.lock_file=false
+    private static final String DB_URL = "jdbc:hsqldb:file:${user.home}/data/fpoobus/db;shutdown=true"; //hsqldb.lock_file=false
 
     static {
         try {
@@ -42,13 +42,11 @@ public class DbAccess {
         try {
             stmt = conn.createStatement();
             stmt.executeUpdate(
-                    "CREATE TABLE unit ("+
-					"id BIGINT NOT NULL PRIMARY KEY,"+
-					"name VARCHAR(255) NOT NULL,"+
-					"code VARCHAR(255) NOT NULL,"+
-					"superior_id BIGINT,"+
-					"FOREIGN KEY (superior_id)"+
-					"REFERENCES unit ON DELETE RESTRICT);"
+            		"CREATE TABLE unit ("+
+            		         "id BIGINT NOT NULL PRIMARY KEY,"+
+            		         "name VARCHAR(255) NOT NULL,"+
+            		         "code VARCHAR(255) NOT NULL,"+
+            		  ");"
 					);
         } catch(Exception e) { 
         	System.out.println("Table already exists, TODO: fix duplicate insert");
@@ -188,11 +186,13 @@ public class DbAccess {
     
     public void insertDummyData() {
     	try {
-			insertData("Name 1", "Code 1");
-			insertData("Name 2", "Code 2");
-			insertData("Name 3", "Code 3");
-			insertData("Name 4", "Code 4");
-			insertData("Name 5", "Code 5");
+			insertData("CEO", "1");
+			insertData("Administration", "1-1");
+			insertData("Legal", "1-1-1");
+			insertData("Archives", "1-1-2");
+			insertData("Production", "1-2");
+			insertData("Sales", "2");
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 			//e.printStackTrace();
