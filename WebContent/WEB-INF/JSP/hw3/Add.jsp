@@ -36,7 +36,6 @@ body {
 		    <li class="menu_link"><a href="Add" id="menu_Add">Lisa</a></li>
 		    <li class="menu_link"><a href="Admin?do=clear_data" id="menu_ClearData">Tühjenda</a></li>
 		    <li class="menu_link"><a href="Admin?do=insert_data" id="menu_InsertData">Sisesta näidisandmed</a></li>
-		    <li class="menu_link"><c:out value="${context_has_ran}"/></li>
 		</ul>
 		
 		<form method="post" action="Add">

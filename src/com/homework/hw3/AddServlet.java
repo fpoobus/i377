@@ -6,6 +6,7 @@ package com.homework.hw3;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,10 +24,14 @@ public class AddServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	DbAccess db = new DbAccess();
-        String name = request.getParameter("name");
-        String code = request.getParameter("code");
-        db.insertData(name, code);
+    	try {
+	    	DbAccess db = new DbAccess();
+	        String name = request.getParameter("name");
+	        String code = request.getParameter("code");
+			db.insertData(name, code);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
         response.sendRedirect("Search");
     }
 

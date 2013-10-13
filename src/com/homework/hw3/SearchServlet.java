@@ -6,6 +6,7 @@ package com.homework.hw3;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +27,11 @@ public class SearchServlet extends HttpServlet {
     			if(request.getParameter("id") != null) {
     				String id = request.getParameter("id");
     				DbAccess db = new DbAccess();
-    				db.deleteItem(id);
+    				try {
+						db.deleteItem(id);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
     			}
     		}
     	}

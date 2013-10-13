@@ -166,23 +166,55 @@ public class DbAccess {
     }
     
 
-    public void insertData(String name, String code) {
+    public void insertData(String name, String code) throws SQLException {
     	System.out.println("Inserting item. Name: " + name + " Code: " + code);
-        executeQuery("INSERT INTO unit (id, name, code) VALUES(NEXT VALUE FOR sequence, '"+ name +"', '"+ code +"')");
+        //executeQuery("INSERT INTO unit (id, name, code) VALUES(NEXT VALUE FOR sequence, '"+ name +"', '"+ code +"')");
+    	Connection conn = DriverManager.getConnection(DB_URL);
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(
+            		"INSERT INTO unit (id, name, code) VALUES(NEXT VALUE FOR sequence, '"+ name +"', '"+ code +"')"
+					);
+        } catch(Exception e) { 
+        	System.out.println("Table already exists, TODO: fix duplicate insert");
+        	e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(stmt);
+            DbUtils.closeQuietly(conn);
+        }
     } 
     
     public void insertDummyData() {
-    	insertData("Name 1", "Code 1");
-    	insertData("Name 2", "Code 2");
-    	insertData("Name 3", "Code 3");
-    	insertData("Name 4", "Code 4");
-    	insertData("Name 5", "Code 5");
+    	try {
+			insertData("Name 1", "Code 1");
+			insertData("Name 2", "Code 2");
+			insertData("Name 3", "Code 3");
+			insertData("Name 4", "Code 4");
+			insertData("Name 5", "Code 5");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
     } 
     
 
-    public void deleteItem(String key) {
+    public void deleteItem(String key) throws SQLException {
     	int delkey = Integer.valueOf(key);
-    	executeQuery("DELETE FROM unit WHERE id = " + delkey);
+    	//executeQuery("DELETE FROM unit WHERE id = " + delkey);
+    	Connection conn = DriverManager.getConnection(DB_URL);
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(
+            		"DELETE FROM unit WHERE id = " + delkey + ""
+					);
+        } catch(Exception e) { 
+        	System.out.println("Table already exists, TODO: fix duplicate insert");
+        	e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(stmt);
+            DbUtils.closeQuietly(conn);
+        }
     }
     
     private void executeQuery(String queryString) {
