@@ -35,7 +35,6 @@ body {
 		    <li class="menu_link"><a href="Search" id="menu_Search">Otsi</a></li>
 		    <li class="menu_link"><a href="Add" id="menu_Add">Lisa</a></li>
 		    <li class="menu_link"><a href="Admin?do=clear_data" id="menu_ClearData">Tühjenda</a></li>
-		    <li class="menu_link"><a href="Admin?do=insert_data" id="menu_InsertData">Sisesta näidisandmed</a></li>
 		</ul>
 
 		<form method="get" action="Search">
@@ -57,7 +56,7 @@ body {
 						<tr>
 							<td>
 								<div id="row_<c:out value="${listitem.code}"/>">
-									<c:out value="${listitem.name}" />
+									<a href="View?id=<c:out value="${listitem.id}"/>" id="view_<c:out value="${listitem.name}"/>"><c:out value="${listitem.name}" /></a>
 								</div>
 							</td>
 							<td>${listitem.code}</td>

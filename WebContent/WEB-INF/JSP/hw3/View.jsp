@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add</title>
+<title>View</title>
 
 <style>
 body {
@@ -37,37 +37,45 @@ body {
 		    <li class="menu_link"><a href="Admin?do=clear_data" id="menu_ClearData">Tühjenda</a></li>
 		</ul>
 		
-		<form method="post" action="Add">
-		
+
+		<c:forEach items="${itemlist}" var="listitem">
 		    <table class="formTable" id="formTable">
 		      <tbody>
 		        <tr>
 		          <td>Nimi:</td>
-		          <td><input name="name" id="nameBox" /></td>
+		          <td><input name="name" id="nameBox" disabled='disabled' value="<c:out value="${listitem.name}"/>"/></td>
 		        </tr>
 		        <tr>
 		          <td>Kood:</td>
-		          <td><input name="code" id="codeBox"/></td>
+		          <td><input name="code" id="codeBox" disabled='disabled' value="<c:out value="${listitem.code}"/>"/></td>
 		        </tr>
 		        <tr>
 		        	<td>Ülemüksus:</td>
 		        	<td>
-		        	<select id="superUnitCode" name="superUnitCode">
-	        			<option value=""/>
-	        			<c:forEach items="${itemlist}" var="listitem">
-	        				<option value="${listitem.code}">${listitem.name}</option>
+			        	<select disabled='disabled' id="superUnitCode" name="superUnitCode">
+		        			<c:forEach items="${parentlist}" var="parentlist">
+		        				<option selected='selected' value="<c:out value="${parentlist.code}"/>"><c:out value="${parentlist.name}"/></option>
+		        			</c:forEach>
+	        			</select>
+        			</td>
+		        </tr>
+		        <tr>
+		        	<td>Alamüksus:</td>
+		        	<td>
+	        			<c:forEach items="${childlist}" var="childlist">
+	        				<span id="sub_<c:out value="${childlist.code}"/>"><c:out value="${childlist.code}"/></span><br/>
 	        			</c:forEach>
-        			</select>
         			</td>
 		        </tr>
 		        <tr>
 		          <td colspan="2" align="right"><br/>
-		            <input type="submit" value="Lisa" id="addButton"/>
+		            <a href="Search">Tagasi</a>
 		          </td>
 		        </tr>
 		      </tbody>
 		    </table>
-	 	</form>
+	    </c:forEach>
+
 		
 	</div>
 	

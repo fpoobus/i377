@@ -1,4 +1,4 @@
-package com.homework.hw3.hsql;
+package com.homework.hsql;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

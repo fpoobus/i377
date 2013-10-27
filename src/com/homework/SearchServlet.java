@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.homework.hw3;
+package com.homework;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.homework.hw3.hsql.DbAccess;
-import com.homework.hw3.hsql.DbItem;
-import com.homework.hw3.hsql.DbItemlist;
+import com.homework.model.DbAccess;
+import com.homework.model.DbItem;
+import com.homework.hsql.DbItemlist;
 
 public class SearchServlet extends HttpServlet {
 
@@ -26,26 +26,19 @@ public class SearchServlet extends HttpServlet {
     		if(request.getParameter("do").equals("delete")) {
     			if(request.getParameter("id") != null) {
     				String id = request.getParameter("id");
-    				DbAccess db = new DbAccess();
-    				try {
-						db.deleteItem(id);
-					} catch (SQLException e) {
-						throw new RuntimeException(e);
-						//e.printStackTrace();
-					}
+    				DbAccess.delete(Long.valueOf(id));
     			}
     		}
     	}
     	if(request.getParameter("searchString") != null) {
     		//Return ArrayList containing items of DbItem type
     		String key = (String) request.getParameter("searchString");
-    		DbItemlist list = new DbItemlist();
-    		request.setAttribute("itemlist", list.getLike(key));
+    		request.setAttribute("itemlist", DbAccess.getByLike(key));
     	}
     	else {
     		//Return ArrayList containing items of DbItem type
-    		DbItemlist list = new DbItemlist();
-    		request.setAttribute("itemlist", list.getAllItems());
+    		//DbItemlist list = new DbItemlist();
+    		request.setAttribute("itemlist", DbAccess.getAll());
     	}
     	
     	request.getRequestDispatcher("WEB-INF/JSP/hw3/Search.jsp").forward(request, response);
