@@ -9,10 +9,12 @@
    <property name="webContent.dir" location="WebContent" />
    <property name="war.file" location="fpoobus.war" />
    <property name="web-inf.lib" value="${webContent.dir}/WEB-INF/lib" />
-
+   <property name="meta-inf" value="${webContent.dir}/META-INF" />
+	
    <path id="classpath">
         <fileset dir="lib" />
-        <fileset dir="${web-inf.lib}" />
+   		<fileset dir="${web-inf.lib}" />
+        <fileset dir="${meta-inf}" />
    </path>
     
    <!--
@@ -73,7 +75,8 @@
     <target name="war">
         <war destfile="${war.file}" webxml="${webContent.dir}/WEB-INF/web.xml">
             <classes dir="${classes.dir}" />
-            <fileset dir="${webContent.dir}" excludes="**/servletapi.jar" />
+            <fileset dir="${webContent.dir}" excludes="**/servlet-apijar2.5.jar" />
+        	<zipfileset dir="${meta-inf}" includes="*" prefix="WEB-INF/classes/META-INF"/>
         </war>
     </target>
     
