@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.homework.model.DbAccess;
 import com.homework.model.DbItem;
-import com.homework.hsql.DbItemlist;
 
 public class SearchServlet extends HttpServlet {
 

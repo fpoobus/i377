@@ -6,7 +6,6 @@ package com.homework;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import com.homework.hsql.DbAccess;
 import com.homework.model.JpaUtil;
 
 public class AppServletContextListener implements ServletContextListener{
